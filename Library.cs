@@ -24,6 +24,7 @@ namespace Library_Manager
         
         private void Library_Load(object sender, EventArgs e)
         {
+            // show books
             show.ViewBooks(dataGridView1);
             buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\show.png"); // added image in repretoire write that file path in here 
             textBoxpassw.UseSystemPasswordChar = true;
@@ -33,10 +34,10 @@ namespace Library_Manager
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectcount++;
-            slctrow = dataGridView1.SelectedCells[0].RowIndex + 1;
+            selectcount++; // to not couse any problem used a variable 
+            slctrow = dataGridView1.SelectedCells[0].RowIndex + 1;    // getting row index to add ,delete , update
             op.Row = slctrow;
-            wop.Row = slctrow;
+            wop.Row = slctrow;    // sending row index
             
         }
 
@@ -44,8 +45,8 @@ namespace Library_Manager
         {
             if(selectcount >= 1)
             {
-                op.BarrowBook();
-                show.ViewBooks(dataGridView1);
+                op.BarrowBook();        // barrow
+                show.ViewBooks(dataGridView1);    
                 selectcount = 0;
             }
             else
@@ -59,7 +60,7 @@ namespace Library_Manager
         {
             if (selectcount >= 1)
             {
-                op.ReturnBook();
+                op.ReturnBook();    //return
                 show.ViewBooks(dataGridView1);
                 selectcount = 0;
             }
@@ -99,7 +100,7 @@ namespace Library_Manager
 
         private void buttonlogin_Click(object sender, EventArgs e)
         {
-            if (textBoxusern.Text == "admin" && textBoxpassw.Text == "adminpanelopen")
+            if (textBoxusern.Text == "admin" && textBoxpassw.Text == "adminpanelopen")    //this the username and password I defined you can change it
             {
                 groupBoxworkactions.Visible = true;
                 groupBoxlogin.Visible = false;
@@ -114,13 +115,13 @@ namespace Library_Manager
             }
         }
         int i = 0;
-        private void buttonshowpw_Click(object sender, EventArgs e)
+        private void buttonshowpw_Click(object sender, EventArgs e)   // this changes the textboxes text appearance with that little any button
         {
             i++;
             if (i % 2 == 1)
             {
                 textBoxpassw.UseSystemPasswordChar = false;
-                buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\unshow.png");
+                buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\unshow.png"); // to not couse any confison
 
             }
             else if (i % 2 == 0)
@@ -134,7 +135,7 @@ namespace Library_Manager
         {
             if (selectcount >= 1)
             {
-                wop.DeleteBook();
+                wop.DeleteBook();        // delete
                 show.ViewBooks(dataGridView1);
                 selectcount = 0;               
             }
@@ -147,7 +148,7 @@ namespace Library_Manager
         int k = 0;
         private void buttonadd_Click(object sender, EventArgs e)
         {
-            wop.IDCount();
+            wop.IDCount();  // this is checking ids is there any nonexist id 
             k++;
             if (k == 1)
             {
@@ -165,7 +166,7 @@ namespace Library_Manager
                 string bookn = textBoxusern.Text;
                 string author = textBoxpassw.Text;
                 string publy = textBoxpubly.Text.ToString();
-                wop.AddBook(bookn, author, publy);
+                wop.AddBook(bookn, author, publy); //adding
                 show.ViewBooks(dataGridView1);
                 textBoxpassw.Clear();
                 textBoxpubly.Clear();
