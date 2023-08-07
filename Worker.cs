@@ -80,7 +80,7 @@ namespace Library_Manager
             {
                 if (m == 0)
                 {
-                    nonexistid = k++; 
+                    nonexistid = k++; //if there is not a missing id adding new id to the database
                 }
                 connection.Open();
                 using (SqlCommand addcmd = new SqlCommand(addString, connection))
