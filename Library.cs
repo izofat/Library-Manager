@@ -25,7 +25,7 @@ namespace Library_Manager
         private void Library_Load(object sender, EventArgs e)
         {
             show.ViewBooks(dataGridView1);
-            buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\Screenshot 2023-07-31 002212.png");
+            buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\show.png");
             textBoxpassw.UseSystemPasswordChar = true;
         }
         int slctrow;
@@ -120,13 +120,13 @@ namespace Library_Manager
             if (i % 2 == 1)
             {
                 textBoxpassw.UseSystemPasswordChar = false;
-                buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\Screenshot 2023-07-31 133844.png");
+                buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\unshow.png");
 
             }
             else if (i % 2 == 0)
             {
                 textBoxpassw.UseSystemPasswordChar = true;
-                buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\Screenshot 2023-07-31 002212.png");
+                buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\show.png");
             }
         }
 
