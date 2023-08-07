@@ -8,20 +8,20 @@ namespace Library_Manager
     {
         private string connectionString = "Data Source=izofat\\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True";
         private string delString = "DELETE FROM BookInfo WHERE ID = @id";
-        private string idfound = "SELECT ID FROM BookInfo";
+        private string idfound = "SELECT ID FROM BookInfo";        // these are the paths ues yours
         private string countid = "SELECT COUNT(ID) FROM BookInfo";
         private string addString = "INSERT INTO BookInfo (ID,BookName,Author,PublicationYear,Status) VALUES (@id , @bookname , @author,@publyear,@status)";
         private int row;
 
         public int Row { get => row; set => row = value; }
-        public void DeleteBook()
+        public void DeleteBook() //delete book
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 using (SqlCommand delcmd = new SqlCommand(delString, connection))
                 {
-                    delcmd.Parameters.AddWithValue("@id",row.ToString());
+                    delcmd.Parameters.AddWithValue("@id",row.ToString()); 
                     delcmd.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -29,7 +29,7 @@ namespace Library_Manager
             }
         }
         
-        public void IDCount()
+        public void IDCount() // getting ids to determinate missing id
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -55,7 +55,7 @@ namespace Library_Manager
             }
             
         }
-        private int nonexistid;
+        private int nonexistid; // book's id that's gonna add
         private int m = 0;
         int k = 1;
         private void IDFound(string[] ids)
