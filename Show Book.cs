@@ -13,8 +13,8 @@ namespace Library_Manager
     {
 
         string connectionString = "Data Source=izofat\\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True";
-        string showBookString = "SELECT BookName,Author,PublicationYear,Status FROM BookInfo ORDER BY CAST (ID AS INT) ASC";
-        public void ViewBooks(DataGridView datagridview)
+        string showBookString = "SELECT BookName,Author,PublicationYear,Status FROM BookInfo ORDER BY CAST (ID AS INT) ASC"; // sorting datas with their ids
+        public void ViewBooks(DataGridView datagridview) //showbooks
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
