@@ -25,7 +25,7 @@ namespace Library_Manager
         private void Library_Load(object sender, EventArgs e)
         {
             show.ViewBooks(dataGridView1);
-            buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\show.png");
+            buttonshowpw.Image = Image.FromFile("C:\\Users\\gorke\\OneDrive\\Documents\\C#\\Library Manager\\show.png"); // added image in repretoire write that file path in here 
             textBoxpassw.UseSystemPasswordChar = true;
         }
         int slctrow;
